@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: var(--light-pink);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.container {
+  padding-inline: 1rem;
+}
+
+.bg-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--white) url(./assets/images/background-pattern-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  z-index: -1;
+}
+
+.faq-container {
+  background-color: var(--white);
+  max-width: 600px;
+  margin-inline: auto;
+  z-index: 10;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(173, 40, 235, 0.5);
+}
+
+.faq-container .title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.faq-container .title h1 {
+  font-size: 2.5rem;
+}
+
+.faq:not(:last-child) {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--light-pink);
+}
+
+.faq .question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.faq .question h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-purple);
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+.faq .question h2:hover {
+  color: #ad28eb;
+}
+
+.faq .content {
+  max-height: 0;
+  color: var(--grayish-purple);
+  visibility: hidden;
+  overflow: hidden;
+  transform: scale(0);
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.faq .content.show {
+  height: auto;
+  padding-bottom: 1rem;
+  visibility: visible;
+  max-height: 999px;
+  transform: scale(1);
+  transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.star {
+  animation: star 2s infinite;
+}
+
+@keyframes star {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-0.4rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg-img {
+    background: var(--white) url(./assets/images/background-pattern-desktop.svg);
+  }
+}
