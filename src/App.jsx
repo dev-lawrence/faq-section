@@ -19,7 +19,7 @@ const App = () => {
         {/* Title */}
         <div className="title">
           <img className="star" src={Star} alt="" />
-          <h1>testing faq</h1>
+          <h1>FAQS</h1>
         </div>
 
         {/* Faq data */}
